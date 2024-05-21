@@ -37,10 +37,10 @@ public class CarController {
 	}
 
 	/**
-	 * Find a pizza from its id.
+	 * Find a car from its id.
 	 *
-	 * @param id the id of the pizza
-	 * @return the pizza with the given id
+	 * @param id the id of the car
+	 * @return the car with the given id
 	 */
 	@GetMapping("/{id}")
 	public CarDTO getOne(@PathVariable("id") final Short id) {

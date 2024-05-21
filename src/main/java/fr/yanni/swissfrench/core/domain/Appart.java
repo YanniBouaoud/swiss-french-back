@@ -19,19 +19,23 @@ public class Appart {
 	@Column(name = "id")
 	private Short id;
 
-	/** User ID of the user placing the order. */
+	/** Appart ID of the user placing the order. */
 	@Column(name = "usr_id")
 	private Short usr_id;
 
 	/** User ID of the user placing the order. */
 	@Column(name = "price")
-	private Short price;
+	private Long price;
 
-	/** User ID of the user placing the order. */
+	/** Adress of the appart placing the order. */
 	@Column(name = "adresse")
 	private String adresse;
 
-	/** User ID of the user placing the order. */
+	/** URL for retrieving the picture of the appart. */
+	@Column(name = "image")
+	private String image;
+
+	/** Description of the appart placing the order. */
 	@Column(name = "description")
 	private String description;
 
@@ -44,12 +48,13 @@ public class Appart {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Appart(Short id, Short usr_id, Short price, String adresse, String description, String date) {
+	public Appart(Short id, Short usr_id, Long price, String adresse, String image, String description, String date) {
 		super();
 		this.id = id;
 		this.usr_id = usr_id;
 		this.price = price;
 		this.adresse = adresse;
+		this.image = image;
 		this.description = description;
 		this.date = date;
 	}
@@ -70,11 +75,11 @@ public class Appart {
 		this.usr_id = usr_id;
 	}
 
-	public Short getPrice() {
+	public Long getPrice() {
 		return price;
 	}
 
-	public void setPrice(Short price) {
+	public void setPrice(Long price) {
 		this.price = price;
 	}
 
@@ -84,6 +89,14 @@ public class Appart {
 
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public String getDescription() {
@@ -104,8 +117,8 @@ public class Appart {
 
 	@Override
 	public String toString() {
-		return "Appart [id=" + id + ", usr_id=" + usr_id + ", price=" + price + ", adresse=" + adresse
-				+ ", description=" + description + ", date=" + date + "]";
+		return "Appart [id=" + id + ", usr_id=" + usr_id + ", price=" + price + ", adresse=" + adresse + ", image="
+				+ image + ", description=" + description + ", date=" + date + "]";
 	}
 
 }

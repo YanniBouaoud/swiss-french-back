@@ -43,6 +43,8 @@ public class AppartMapper {
 			dto.setUsr_id(appart.getUsr_id());
 			dto.setPrice(appart.getPrice());
 			dto.setAdresse(appart.getAdresse());
+			dto.setImage(appart.getImage());
+
 			dto.setDescription(appart.getDescription());
 
 		}
@@ -55,6 +57,8 @@ public class AppartMapper {
 			entity = new Appart();
 			entity.setPrice(dto.getPrice());
 			entity.setAdresse(dto.getAdresse());
+			entity.setImage(dto.getImage());
+
 			entity.setDescription(dto.getDescription());
 			Long userId = getLoggedInUserId();
 			if (userId != null) {

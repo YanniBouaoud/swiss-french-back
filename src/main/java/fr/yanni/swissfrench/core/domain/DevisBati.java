@@ -27,15 +27,15 @@ public class DevisBati {
 	@Column(name = "date", insertable = false, updatable = false)
 	private String date;
 
-	/** User ID of the user placing the order. */
+	/** Budget for the order. */
 	@Column(name = "budget")
 	private Short budget;
 
-	/** User ID of the user placing the order. */
+	/** Time frame for the order completion. */
 	@Column(name = "delais")
 	private String delais;
 
-	/** User ID of the user placing the order. */
+	/** Description of the order. */
 	@Column(name = "description")
 	private String description;
 

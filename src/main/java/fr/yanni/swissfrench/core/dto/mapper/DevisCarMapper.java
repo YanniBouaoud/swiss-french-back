@@ -29,7 +29,7 @@ public class DevisCarMapper {
 	}
 
 	@Autowired
-	private UserDetailsServiceImpl userService;
+	public UserDetailsServiceImpl userService;
 
 	public DevisCar dtoToEntity(DevisCarDTO dto) {
 		DevisCar entity = null;

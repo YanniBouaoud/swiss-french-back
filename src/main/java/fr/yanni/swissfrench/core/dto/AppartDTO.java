@@ -6,10 +6,12 @@ public class AppartDTO {
 	private Short usr_id;
 
 	/** User ID of the user placing the order. */
-	private Short price;
+	private Long price;
 
 	/** User ID of the user placing the order. */
 	private String adresse;
+
+	private String image;
 
 	/** User ID of the user placing the order. */
 	private String description;
@@ -19,11 +21,12 @@ public class AppartDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AppartDTO(Short usr_id, Short price, String adresse, String description) {
+	public AppartDTO(Short usr_id, Long price, String adresse, String image, String description) {
 		super();
 		this.usr_id = usr_id;
 		this.price = price;
 		this.adresse = adresse;
+		this.image = image;
 		this.description = description;
 	}
 
@@ -35,11 +38,11 @@ public class AppartDTO {
 		this.usr_id = usr_id;
 	}
 
-	public Short getPrice() {
+	public Long getPrice() {
 		return price;
 	}
 
-	public void setPrice(Short price) {
+	public void setPrice(Long price) {
 		this.price = price;
 	}
 
@@ -49,6 +52,14 @@ public class AppartDTO {
 
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public String getDescription() {
@@ -61,8 +72,8 @@ public class AppartDTO {
 
 	@Override
 	public String toString() {
-		return "AppartDTO [usr_id=" + usr_id + ", price=" + price + ", adresse=" + adresse + ", description="
-				+ description + "]";
+		return "AppartDTO [usr_id=" + usr_id + ", price=" + price + ", adresse=" + adresse + ", image=" + image
+				+ ", description=" + description + "]";
 	}
 
 }

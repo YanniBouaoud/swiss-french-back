@@ -26,7 +26,7 @@ public class DevisBatiMapper {
 	}
 
 	@Autowired
-	private UserDetailsServiceImpl userService;
+	public UserDetailsServiceImpl userService;
 
 	public DevisBati dtoToEntity(DevisBatiDTO dto) {
 		DevisBati entity = null;
