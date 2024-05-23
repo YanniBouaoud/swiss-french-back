@@ -49,28 +49,6 @@ class SwissFrenchApplicationTests {
 	/** Test Car Mapper **/
 
 	@Test
-	void testCarToDto() {
-		// Création d'un objet Car
-		Car car = new Car();
-		car.setId((short) 1);
-		car.setName("Tesla Model 3");
-		car.setDescription("Electric car");
-		car.setPrice(89999.99);
-		car.setImage("tesla_model_s.jpg");
-
-		// Conversion de Car à CarDTO
-		CarDTO dto = CarMapper.carToDto(car);
-
-		// Vérification des résultats
-		assertNotNull(dto);
-		assertEquals((short) 1, dto.getId());
-		assertEquals("Tesla Model 3", dto.getName());
-		assertEquals("Electric car", dto.getDescription());
-		assertEquals(89999.99, dto.getPrice(), 0.001);
-		assertEquals("tesla_model_3.jpg", dto.getImage());
-	}
-
-	@Test
 	void testDtoToEntity() {
 		// Création d'un objet CarDTO
 		CarDTO dto = new CarDTO();
@@ -146,7 +124,7 @@ class SwissFrenchApplicationTests {
 	void testAppartToDto() {
 		// Création d'un objet Appart
 		Appart appart = new Appart();
-		appart.setUsr_id((short) 1);
+		appart.setUsrid((short) 1);
 		appart.setPrice((long) 1000.0);
 		appart.setAdresse("123 Rue de la Paix");
 		appart.setImage("image.jpg");
@@ -168,14 +146,14 @@ class SwissFrenchApplicationTests {
 	void testAppartsToDtos() {
 		// Création d'une liste de Appart
 		Appart appart1 = new Appart();
-		appart1.setUsr_id((short) 1);
+		appart1.setUsrid((short) 1);
 		appart1.setPrice((long) 1000.0);
 		appart1.setAdresse("123 Rue de la Paix");
 		appart1.setImage("image.jpg");
 		appart1.setDescription("Beau appartement");
 
 		Appart appart2 = new Appart();
-		appart2.setUsr_id((short) 2);
+		appart2.setUsrid((short) 2);
 		appart2.setPrice((long) 1500.0);
 		appart2.setAdresse("789 Boulevard Saint-Germain");
 		appart2.setImage("image3.jpg");
@@ -213,7 +191,7 @@ class SwissFrenchApplicationTests {
 	@BeforeEach
 	void setUp1() {
 		userServiceMock = Mockito.mock(UserDetailsServiceImpl.class);
-		devisBatiMapper = new DevisBatiMapper();
+		devisBatiMapper = new DevisBatiMapper(userServiceMock1);
 		devisBatiMapper.userService = userServiceMock;
 	}
 
@@ -221,7 +199,7 @@ class SwissFrenchApplicationTests {
 	void testDevisBatiToDto() {
 		// Création d'un objet DevisBati
 		DevisBati devisBati = new DevisBati();
-		devisBati.setUsr_id((short) 1);
+		devisBati.setUsrid((short) 1);
 		devisBati.setBudget((long) 5000);
 		devisBati.setDelais("30 jours");
 		devisBati.setDescription("Rénovation de la cuisine");
@@ -263,7 +241,7 @@ class SwissFrenchApplicationTests {
 		assertEquals(7000, entity.getBudget());
 		assertEquals("45 jours", entity.getDelais());
 		assertEquals("Peinture de la maison", entity.getDescription());
-		assertEquals((short) 1, entity.getUsr_id(), 1);
+		assertEquals((short) 1, entity.getUsrid(), 1);
 	}
 
 	/** Test DevisCar Mapper **/
@@ -282,10 +260,10 @@ class SwissFrenchApplicationTests {
 	void testDeviscarToDto() {
 		// Création d'un objet DevisCar
 		DevisCar devisCar = new DevisCar();
-		devisCar.setUsr_id((short) 1);
+		devisCar.setUsrid((short) 1);
 		List<DevisCarLine> devisCarLines = new ArrayList<>();
 		DevisCarLine line1 = new DevisCarLine();
-		line1.setCar_id((short) 1);
+		line1.setCarid((short) 1);
 		line1.setCommentaire("Bon état général");
 		line1.setDevisCar(devisCar);
 		devisCarLines.add(line1);

@@ -15,79 +15,132 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /**
- * Represents an order entity.
+ * Represents a car quotation entity.
  */
 @Entity
 @Table(name = ("deviscar"))
 @CrossOrigin
 public class DevisCar {
 
-	/** Unique ID of an order. */
+	/** Unique ID of a car quotation. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Short id;
 
-	/** User ID of the user placing the order. */
+	/** User ID of the user placing the car quotation. */
 	@Column(name = "usr_id")
-	private Short usr_id;
+	private Short usrid;
 
-	/** Date of the order. */
+	/** Date of the car quotation. */
 	@Column(name = "date", insertable = false, updatable = false)
 	private String date;
 
+	/** List of car quotation lines associated with this car quotation. */
 	@OneToMany(mappedBy = "devisCar", cascade = CascadeType.ALL)
 	private List<DevisCarLine> deviscarLines = new ArrayList<>();
 
+	/**
+	 * Default constructor.
+	 */
 	public DevisCar() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public DevisCar(Short id, Short usr_id, String date, List<DevisCarLine> deviscarLines) {
+	/**
+	 * Constructor with parameters.
+	 *
+	 * @param cId            The unique ID of the car quotation.
+	 * @param cUsrid         The user ID of the user placing the car quotation.
+	 * @param cDate          The date of the car quotation.
+	 * @param cDeviscarLines The list of car quotation lines associated with this
+	 *                       car quotation.
+	 */
+	public DevisCar(final Short cId, final Short cUsrid, final String cDate, final List<DevisCarLine> cDeviscarLines) {
 		super();
-		this.id = id;
-		this.usr_id = usr_id;
-		this.date = date;
-		this.deviscarLines = deviscarLines;
+		this.id = cId;
+		this.usrid = cUsrid;
+		this.date = cDate;
+		this.deviscarLines = cDeviscarLines;
 	}
 
+	// Getters and setters
+
+	/**
+	 * Get the unique ID of the car quotation.
+	 *
+	 * @return The ID.
+	 */
 	public Short getId() {
 		return id;
 	}
 
-	public void setId(Short id) {
-		this.id = id;
+	/**
+	 * Set the unique ID of the car quotation.
+	 *
+	 * @param cId The ID.
+	 */
+	public void setId(final Short cId) {
+		this.id = cId;
 	}
 
-	public Short getUsr_id() {
-		return usr_id;
+	/**
+	 * Get the user ID of the user placing the car quotation.
+	 *
+	 * @return The user ID.
+	 */
+	public Short getUsrid() {
+		return usrid;
 	}
 
-	public void setUsr_id(Short usr_id) {
-		this.usr_id = usr_id;
+	/**
+	 * Set the user ID of the user placing the car quotation.
+	 *
+	 * @param cUsrid The user ID.
+	 */
+	public void setUsrid(final Short cUsrid) {
+		this.usrid = cUsrid;
 	}
 
+	/**
+	 * Get the date of the car quotation.
+	 *
+	 * @return The date.
+	 */
 	public String getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	/**
+	 * Set the date of the car quotation.
+	 *
+	 * @param cDate The date.
+	 */
+	public void setDate(final String cDate) {
+		this.date = cDate;
 	}
 
+	/**
+	 * Get the list of car quotation lines associated with this car quotation.
+	 *
+	 * @return The list of car quotation lines.
+	 */
 	public List<DevisCarLine> getDevisCarLines() {
 		return deviscarLines;
 	}
 
-	public void setDevisCarLines(List<DevisCarLine> deviscarLines) {
-		this.deviscarLines = deviscarLines;
+	/**
+	 * Set the list of car quotation lines associated with this car quotation.
+	 *
+	 * @param cDeviscarLines The list of car quotation lines.
+	 */
+	public void setDevisCarLines(final List<DevisCarLine> cDeviscarLines) {
+		this.deviscarLines = cDeviscarLines;
 	}
 
 	@Override
-	public String toString() {
-		return "DevisCar [id=" + id + ", usr_id=" + usr_id + ", date=" + date + ", deviscarLines=" + deviscarLines
-				+ "]";
+	public final String toString() {
+		return "DevisCar [id=" + id + ", usr_id=" + usrid + ", date=" + date + ", deviscarLines=" + deviscarLines + "]";
 	}
 
 }

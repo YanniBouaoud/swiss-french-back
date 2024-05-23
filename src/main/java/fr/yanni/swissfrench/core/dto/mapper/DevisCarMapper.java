@@ -22,7 +22,7 @@ public class DevisCarMapper {
 		DevisCarDTO dto = null;
 		if (devisCar != null) {
 			dto = new DevisCarDTO();
-			dto.setUsr_id(devisCar.getUsr_id());
+			dto.setUsr_id(devisCar.getUsrid());
 			dto.setDevisCarLines(deviscarLinesToDtos(devisCar.getDevisCarLines()));
 		}
 		return dto;
@@ -37,7 +37,7 @@ public class DevisCarMapper {
 			entity = new DevisCar();
 			Long userId = getLoggedInUserId();
 			if (userId != null) {
-				entity.setUsr_id(userId.shortValue());
+				entity.setUsrid(userId.shortValue());
 			}
 			entity.setDevisCarLines(dtosToDevisCarLines(dto.getDevisCarLines(), entity));
 		}
@@ -57,7 +57,7 @@ public class DevisCarMapper {
 		DevisCarLineDTO dto = null;
 		if (deviscarLine != null) {
 			dto = new DevisCarLineDTO();
-			dto.setCar_id(deviscarLine.getCar_id());
+			dto.setCar_id(deviscarLine.getCarid());
 			dto.setCommentaire(deviscarLine.getCommentaire());
 			dto.setOrd_id(deviscarLine.getDevisCar().getId());
 		}
@@ -68,7 +68,7 @@ public class DevisCarMapper {
 		DevisCarLine entity = null;
 		if (dto != null) {
 			entity = new DevisCarLine();
-			entity.setCar_id(dto.getCar_id());
+			entity.setCarid(dto.getCar_id());
 			entity.setCommentaire(dto.getCommentaire());
 		}
 		return entity;

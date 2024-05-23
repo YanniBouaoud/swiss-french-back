@@ -17,6 +17,9 @@ import fr.yanni.swissfrench.core.service.IDevisBatiService;
 @RequestMapping("/devisbati")
 public class DevisBatiController {
 
+	/**
+	 * Autowired dependency for mapping between DevisCarDTO and DevisCar entities.
+	 */
 	@Autowired
 	private IDevisBatiService devisBatiService;
 
