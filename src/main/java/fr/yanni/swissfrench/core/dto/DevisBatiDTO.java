@@ -7,7 +7,7 @@ public class DevisBatiDTO {
 	private Short usr_id;
 
 	/** User ID of the user placing the order. */
-	private Short budget;
+	private Long budget;
 
 	/** User ID of the user placing the order. */
 	private String delais;
@@ -19,7 +19,7 @@ public class DevisBatiDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DevisBatiDTO(Short usr_id, Short budget, String delais, String description) {
+	public DevisBatiDTO(Short usr_id, Long budget, String delais, String description) {
 		super();
 		this.usr_id = usr_id;
 		this.budget = budget;
@@ -35,11 +35,11 @@ public class DevisBatiDTO {
 		this.usr_id = usr_id;
 	}
 
-	public Short getBudget() {
+	public Long getBudget() {
 		return budget;
 	}
 
-	public void setBudget(Short budget) {
+	public void setBudget(Long budget) {
 		this.budget = budget;
 	}
 

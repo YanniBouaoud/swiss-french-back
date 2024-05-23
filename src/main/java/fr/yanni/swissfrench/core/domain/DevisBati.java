@@ -29,7 +29,7 @@ public class DevisBati {
 
 	/** Budget for the order. */
 	@Column(name = "budget")
-	private Short budget;
+	private Long budget;
 
 	/** Time frame for the order completion. */
 	@Column(name = "delais")
@@ -47,7 +47,7 @@ public class DevisBati {
 		this.description = description;
 	}
 
-	public DevisBati(Short id, Short usr_id, String date, Short budget, String delais, String description) {
+	public DevisBati(Short id, Short usr_id, String date, Long budget, String delais, String description) {
 		super();
 		this.id = id;
 		this.usr_id = usr_id;
@@ -86,11 +86,11 @@ public class DevisBati {
 		this.date = date;
 	}
 
-	public Short getBudget() {
+	public Long getBudget() {
 		return budget;
 	}
 
-	public void setBudget(Short budget) {
+	public void setBudget(Long budget) {
 		this.budget = budget;
 	}
 

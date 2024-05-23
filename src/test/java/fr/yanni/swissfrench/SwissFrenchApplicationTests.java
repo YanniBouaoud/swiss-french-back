@@ -222,7 +222,7 @@ class SwissFrenchApplicationTests {
 		// Création d'un objet DevisBati
 		DevisBati devisBati = new DevisBati();
 		devisBati.setUsr_id((short) 1);
-		devisBati.setBudget((short) 5000);
+		devisBati.setBudget((long) 5000);
 		devisBati.setDelais("30 jours");
 		devisBati.setDescription("Rénovation de la cuisine");
 
@@ -232,7 +232,7 @@ class SwissFrenchApplicationTests {
 		// Vérification des résultats
 		assertNotNull(dto);
 		assertEquals((short) 1, dto.getUsr_id());
-		assertEquals((short) 5000, dto.getBudget());
+		assertEquals(5000, dto.getBudget());
 		assertEquals("30 jours", dto.getDelais());
 		assertEquals("Rénovation de la cuisine", dto.getDescription());
 	}
@@ -251,7 +251,7 @@ class SwissFrenchApplicationTests {
 
 		// Création d'un objet DevisBatiDTO
 		DevisBatiDTO dto = new DevisBatiDTO();
-		dto.setBudget((short) 7000);
+		dto.setBudget((long) 7000);
 		dto.setDelais("45 jours");
 		dto.setDescription("Peinture de la maison");
 
@@ -260,7 +260,7 @@ class SwissFrenchApplicationTests {
 
 		// Vérification des résultats
 		assertNotNull(entity);
-		assertEquals((short) 7000, entity.getBudget());
+		assertEquals(7000, entity.getBudget());
 		assertEquals("45 jours", entity.getDelais());
 		assertEquals("Peinture de la maison", entity.getDescription());
 		assertEquals((short) 1, entity.getUsr_id(), 1);
