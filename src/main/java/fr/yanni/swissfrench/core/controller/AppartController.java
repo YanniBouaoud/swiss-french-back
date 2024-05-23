@@ -37,15 +37,10 @@ public class AppartController {
 	}
 
 	/**
-	 * Autowired dependency for mapping between DevisCarDTO and DevisCar entities.
-	 */
-	@Autowired
-	private AppartMapper appartMapper;
-
-	/**
+	 * Saves the given AppartDTO representing the new appart.
 	 *
-	 * @param order The AppartDTO representing the new order to be saved.
-	 * @return The AppartDTO of the saved order.
+	 * @param appart The AppartDTO representing the new appart to be saved.
+	 * @return The AppartDTO of the saved appart.
 	 */
 	@PostMapping("/")
 	public AppartDTO save(@RequestBody final AppartDTO appart) {

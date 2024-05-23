@@ -12,78 +12,131 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 /**
- * Represents an devisCar lvvine entity. test
+ * Represents a line item in a car quotation.
  */
 @Entity
 @Table(name = ("deviscar_line"))
 @CrossOrigin
 public class DevisCarLine {
-	/** Unique ID of an devisCar line. */
+	/** Unique ID of a line item in a car quotation. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Short id;
 
+	/** Car quotation associated with this line item. */
 	@ManyToOne
 	@JoinColumn(name = "dcr_id", referencedColumnName = "id")
 	private DevisCar devisCar;
 
-	/** Car ID of the ordered pizza. */
+	/** Car ID of the ordered car. */
 	@Column(name = "car_id")
-	private Short car_id;
+	private Short carid;
 
-	/** Quantity of the ordered pizza. */
+	/** Comment related to the ordered car. */
 	@Column(name = "commentaire")
 	private String commentaire;
 
+	/**
+	 * Default constructor.
+	 */
 	public DevisCarLine() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public DevisCarLine(Short id, DevisCar devisCar, Short car_id, String commentaire) {
+	/**
+	 * Constructor with parameters.
+	 *
+	 * @param lId          The unique ID of the line item.
+	 * @param lDevisCar    The car quotation associated with this line item.
+	 * @param lCarid       The ID of the ordered car.
+	 * @param lCommentaire The comment related to the ordered car.
+	 */
+	public DevisCarLine(final Short lId, final DevisCar lDevisCar, final Short lCarid, final String lCommentaire) {
 		super();
-		this.id = id;
-		this.devisCar = devisCar;
-		this.car_id = car_id;
-		this.commentaire = commentaire;
+		this.id = lId;
+		this.devisCar = lDevisCar;
+		this.carid = lCarid;
+		this.commentaire = lCommentaire;
 	}
 
+	// Getters and setters
+
+	/**
+	 * Get the unique ID of the line item.
+	 *
+	 * @return The ID.
+	 */
 	public Short getId() {
 		return id;
 	}
 
-	public void setId(Short id) {
-		this.id = id;
+	/**
+	 * Set the unique ID of the line item.
+	 *
+	 * @param lId The ID.
+	 */
+	public void setId(final Short lId) {
+		this.id = lId;
 	}
 
+	/**
+	 * Get the car quotation associated with this line item.
+	 *
+	 * @return The car quotation.
+	 */
 	public DevisCar getDevisCar() {
 		return devisCar;
 	}
 
-	public void setDevisCar(DevisCar devisCar) {
-		this.devisCar = devisCar;
+	/**
+	 * Set the car quotation associated with this line item.
+	 *
+	 * @param lDevisCar The car quotation.
+	 */
+	public void setDevisCar(final DevisCar lDevisCar) {
+		this.devisCar = lDevisCar;
 	}
 
-	public Short getCar_id() {
-		return car_id;
+	/**
+	 * Get the ID of the ordered car.
+	 *
+	 * @return The car ID.
+	 */
+	public Short getCarid() {
+		return carid;
 	}
 
-	public void setCar_id(Short car_id) {
-		this.car_id = car_id;
+	/**
+	 * Set the ID of the ordered car.
+	 *
+	 * @param lCarid The car ID.
+	 */
+	public void setCarid(final Short lCarid) {
+		this.carid = lCarid;
 	}
 
+	/**
+	 * Get the comment related to the ordered car.
+	 *
+	 * @return The comment.
+	 */
 	public String getCommentaire() {
 		return commentaire;
 	}
 
-	public void setCommentaire(String commentaire) {
-		this.commentaire = commentaire;
+	/**
+	 * Set the comment related to the ordered car.
+	 *
+	 * @param lCommentaire The comment.
+	 */
+	public void setCommentaire(final String lCommentaire) {
+		this.commentaire = lCommentaire;
 	}
 
 	@Override
-	public String toString() {
-		return "DevisCarLine [id=" + id + ", devisCar=" + devisCar + ", car_id=" + car_id + ", commentaire="
+	public final String toString() {
+		return "DevisCarLine [id=" + id + ", devisCar=" + devisCar + ", car_id=" + carid + ", commentaire="
 				+ commentaire + "]";
 	}
 

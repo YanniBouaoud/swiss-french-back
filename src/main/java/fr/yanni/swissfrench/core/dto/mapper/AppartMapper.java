@@ -12,16 +12,32 @@ import fr.yanni.swissfrench.core.domain.Appart;
 import fr.yanni.swissfrench.core.dto.AppartDTO;
 import fr.yanni.swissfrench.security.service.impl.UserDetailsServiceImpl;
 
+/**
+ * Mapper class for converting between Appart and AppartDTO objects.
+ */
 @Component
 public class AppartMapper {
 
+	/** Service for retrieving user details. */
+
 	private static UserDetailsServiceImpl userService = new UserDetailsServiceImpl();
 
+	/**
+	 * Constructor for AppartMapper.
+	 *
+	 * @param mUserService The UserDetailsServiceImpl instance to be injected.
+	 */
 	@Autowired
-	public AppartMapper(UserDetailsServiceImpl userService) {
-		this.userService = userService;
+	public AppartMapper(final UserDetailsServiceImpl mUserService) {
+		AppartMapper.userService = mUserService;
 	}
 
+	/**
+	 * Converts a list of Appart objects to a list of AppartDTO objects.
+	 *
+	 * @param apparts The list of Appart objects.
+	 * @return The list of AppartDTO objects.
+	 */
 	public static List<AppartDTO> appartsToDtos(final List<Appart> apparts) {
 		List<AppartDTO> dtos = null;
 
@@ -36,11 +52,18 @@ public class AppartMapper {
 		return dtos;
 	}
 
+	/**
+	 * Converts an Appart object to an AppartDTO object.
+	 *
+	 * @param appart The Appart object.
+	 * @return The AppartDTO object.
+	 */
+
 	public static AppartDTO appartToDto(final Appart appart) {
 		AppartDTO dto = null;
 		if (appart != null) {
 			dto = new AppartDTO();
-			dto.setUsr_id(appart.getUsr_id());
+			dto.setUsr_id(appart.getUsrid());
 			dto.setPrice(appart.getPrice());
 			dto.setAdresse(appart.getAdresse());
 			dto.setImage(appart.getImage());
@@ -51,7 +74,14 @@ public class AppartMapper {
 		return dto;
 	}
 
-	public static Appart dtoToEntity(AppartDTO dto) {
+	/**
+	 * Converts an AppartDTO object to an Appart entity object.
+	 *
+	 * @param dto The AppartDTO object.
+	 * @return The Appart entity object.
+	 */
+
+	public static Appart dtoToEntity(final AppartDTO dto) {
 		Appart entity = null;
 		if (dto != null) {
 			entity = new Appart();
@@ -62,11 +92,17 @@ public class AppartMapper {
 			entity.setDescription(dto.getDescription());
 			Long userId = getLoggedInUserId();
 			if (userId != null) {
-				entity.setUsr_id(userId.shortValue());
+				entity.setUsrid(userId.shortValue());
 			}
 		}
 		return entity;
 	}
+
+	/**
+	 * Retrieves the ID of the currently logged-in user.
+	 *
+	 * @return The ID of the logged-in user.
+	 */
 
 	private static Long getLoggedInUserId() {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -77,6 +113,11 @@ public class AppartMapper {
 		return null;
 	}
 
+	/**
+	 * A boolean method (just for testing purposes).
+	 *
+	 * @return Always returns null.
+	 */
 	public static Boolean booleanMethod() {
 		return null;
 	}
